@@ -1,4 +1,8 @@
 {
   "commentTranslate.source": "intellsmi.comment-translate-ali.cloud",
-  "commentTranslate.multiLineMerge": true
+  "commentTranslate.multiLineMerge": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

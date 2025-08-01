@@ -1,7 +1,6 @@
 import 'package:example/icons/orange_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:orange_ui_kit/orange_juice.dart';
 
 class MainScreen extends StatefulWidget {
   final Widget child;
@@ -15,36 +14,48 @@ class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late final log = Logger(runtimeType.toString());
   late TabController _tabController;
+  late double screenWidth;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 3, vsync: this); // 在initState中创建
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    screenWidth = MediaQuery.of(context).size.width;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Center(
-          child: Text(
-            '🍊 Orange UI',
-            style: TextStyle(
-              fontSize: 24,
+        leading: Row(
+          children: [
+            SizedBox(
+              width: 24,
             ),
-          ),
+            Text(
+              '🍊 Orange UI',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
-        leadingWidth: 120,
+        leadingWidth: screenWidth * 0.75,
         title: TabBar(
           dividerHeight: 0,
           controller: _tabController,
           tabs: [
             Tab(
-              text: '组件',
+              text: '指南',
             ),
             Tab(
-              text: '指南',
+              text: '组件',
             ),
             Tab(
               text: '资源',
@@ -61,8 +72,17 @@ class _MainScreenState extends State<MainScreen>
           IconButton(
             onPressed: () {},
             icon: Icon(
+              Icons.translate,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
               OrangeIcons.icon_github,
             ),
+          ),
+          SizedBox(
+            width: 24,
           ),
         ],
       ),

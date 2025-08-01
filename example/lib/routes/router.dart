@@ -1,6 +1,6 @@
 import 'package:example/icons/orange_icons.dart';
-import 'package:example/pages/component_page.dart';
-import 'package:example/pages/guide_page.dart';
+import 'package:example/pages/component/component_page.dart';
+import 'package:example/pages/guide/guide_page.dart';
 import 'package:example/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
